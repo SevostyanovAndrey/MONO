@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AutoRequest;
+use App\Http\Requests\ClientRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CreateController extends Controller
 {
@@ -16,8 +19,13 @@ class CreateController extends Controller
     {
         return view('create');
     }
-    public function storeClient(Request $request)
+    public function storeClient(ClientRequest $request)
     {
-
+        $data = $request->validated();
+        DB::table('clients')->insert($data);
+    }
+    public function storeAuto(AutoRequest $request){
+        $data = $request->validated();
+        DB::table('autos')->insert($data);
     }
 }

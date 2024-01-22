@@ -24,10 +24,7 @@ class AutoRequest extends FormRequest
     public function rules()
     {
         return [
-            "brand" => 'required',
-            'model' => 'required',
-            "color" => 'required',
-            "numberAuto" => 'required'
+
 
         ];
     }

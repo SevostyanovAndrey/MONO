@@ -28,6 +28,7 @@ class ClientRequest extends FormRequest
             "gender" => 'required',
             "phone" => 'unique:clients',
             "address" => 'string',
+
         ];
     }
 }
