@@ -26,7 +26,6 @@
         <a class="nav-link disabled">Отключенная</a>
     </li>
 </ul>
-
 @yield('content')
 </body>
 </html>

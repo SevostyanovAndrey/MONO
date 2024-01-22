@@ -18,7 +18,7 @@ class MainController extends Controller
     public function __invoke(Request $request)
     {
     $data = DB::table('clients')->get();
-    $dataAuto = DB::table('autos')->where('client_id', $data->id)->get();
+
     return view('main', compact('data'));
     }
 }

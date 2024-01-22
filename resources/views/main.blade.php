@@ -10,11 +10,29 @@
 <body>
 @extends('base.base')
 @section('content')
-    @foreach($data as $dt)
-        {{$dt->fullName}}
-        <br>
-        {{$dt->gender}}
-    @endforeach
-@endsection
+<div class="container">
+    <h2 class="m-3">Все клиенты</h2>
+            @foreach($data as $dt)
+                @foreach(DB::table('autos')->where('client_id',$dt->id )->get() as $auto)
+                    <div>
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <td>{{$dt->fullName}}</td>
+                                <td>{{$auto->brand}}</td>
+                                <td>{{$auto->numberAuto}}</td>
+                                <td><button>Ред</button></td>
+                                <td><button><b>X</b></button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                @endforeach
+            @endforeach
+        @endsection
+
+
+</div>
+
 </body>
 </html>

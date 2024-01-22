@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Controllers\MainController::class);
+Route::get('/', \App\Http\Controllers\MainController::class)->name('main');
+Route::get('/{client}', \App\Http\Controllers\EditController::class)->where('client', "[0-9]+")->name('view');
+
+
+Route::fallback(function (){
+    return redirect()->route('main');
+});
