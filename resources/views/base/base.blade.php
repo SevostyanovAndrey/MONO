@@ -17,15 +17,13 @@
         <a class="nav-link active" aria-current="page" href="#">Активная</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Ссылка</a>
+        <a class="nav-link" href="{{route('main')}}"><b>Главная</b></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Ссылка</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled">Отключенная</a>
     </li>
 </ul>
+
 @yield('content')
 </body>
 </html>
