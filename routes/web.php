@@ -18,6 +18,7 @@ Route::get('/', \App\Http\Controllers\MainController::class)->name('main');
 Route::get('/{client}', \App\Http\Controllers\EditController::class)->where('client', "[0-9]+")->name('view');
 Route::get('/create', [\App\Http\Controllers\CreateController::class, 'create'])->name('create');
 Route::post('/', [\App\Http\Controllers\CreateController::class, 'store'])->name('store');
+Route::post('/1', [\App\Http\Controllers\CreateController::class, 'storeAuto'])->name('storeAutos');
 
 
 Route::fallback(function (){

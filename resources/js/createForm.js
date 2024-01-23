@@ -1,6 +1,7 @@
 const showFormButton = document.getElementById('showFormButton');
 
 showFormButton.addEventListener('click', () => {
+    // Generate the new form markup
     const newFormMarkup = `
         <div class="m-3">
             <div style="width: 30%">
@@ -32,12 +33,13 @@ showFormButton.addEventListener('click', () => {
         </div>
     `;
 
-
+    // Create the new form element
     const newForm = document.createElement('form');
     newForm.innerHTML = newFormMarkup;
 
+    // Append the new form to the document body
     document.body.appendChild(newForm);
 
+    // Show the new form
     newForm.style.display = 'block';
 });
-
