@@ -19,13 +19,14 @@ class CreateController extends Controller
     {
         return view('create');
     }
-    public function storeClient(ClientRequest $request)
+    public function store(Request $request)
     {
-        $data = $request->validated();
+        $data = $request->validate([
+            'fullName' => '',
+            'gender' => '',
+            "phone" => '',
+            'address' => ''
+        ]);
         DB::table('clients')->insert($data);
-    }
-    public function storeAuto(AutoRequest $request){
-        $data = $request->validated();
-        DB::table('autos')->insert($data);
     }
 }
