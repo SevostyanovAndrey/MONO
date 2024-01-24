@@ -180,6 +180,194 @@
         -o-transform: skewX(-20deg);
         transform: skewX(-20deg);
     }
+    .inputGroup {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 1em 0 1em 0;
+        max-width: 400px;
+        position: relative;
+    }
 
+    .inputGroup input {
+        font-size: 100%;
+        padding: 0.8em;
+        outline: none;
+        border: 2px solid rgb(200, 200, 200);
+        background-color: transparent;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .inputGroup label {
+        font-size: 100%;
+        position: absolute;
+        left: 0;
+        padding: 0.8em;
+        margin-left: 0.5em;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        color: rgb(100, 100, 100);
+    }
+
+    .inputGroup :is(input:focus, input:valid)~label {
+        transform: translateY(-50%) scale(.9);
+        margin: 0em;
+        margin-left: 1.3em;
+        padding: 0.4em;
+        background-color: #ffffff;
+    }
+
+    .inputGroup :is(input:focus, input:valid) {
+        border-color: rgb(0, 0, 0);
+    }
+    .btnSubmitCustom {
+
+        font-family: inherit;
+        display: inline-block;
+        width: 8em;
+        height: 2.6em;
+        line-height: 2.5em;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid black;
+        transition: color .5s;
+        z-index: 1;
+        font-size: 17px;
+        border-radius: 6px;
+        font-weight: 500;
+        color: black;
+    }
+
+    .btnSubmitCustom:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background: #4b9f45;
+        height: 150px;
+        width: 200px;
+        border-radius: 50%;
+    }
+
+    .btnSubmitCustom:hover {
+        color: #fff;
+    }
+
+    .btnSubmitCustom:before {
+        top: 100%;
+        left: 100%;
+        transition: all .7s;
+    }
+
+    .btnSubmitCustom:hover:before {
+        top: -30px;
+        left: -30px;
+    }
+
+    .btnSubmitCustom:active:before {
+        background: #013804;
+        transition: background 0s;
+    }
+    .switch {
+        --secondary-container: #3c8c36;
+        --primary: #84da89;
+        font-size: 17px;
+        position: relative;
+        display: inline-block;
+        width: 3.7em;
+        height: 1.8em;
+    }
+
+    .switch input {
+        display: none;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #313033;
+        transition: .2s;
+        border-radius: 30px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 1.4em;
+        width: 1.4em;
+        border-radius: 20px;
+        left: 0.2em;
+        bottom: 0.2em;
+        background-color: #aeaaae;
+        transition: .4s;
+    }
+
+    input:checked + .slider::before {
+        background-color: var(--primary);
+    }
+
+    input:checked + .slider {
+        background-color: var(--secondary-container);
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px var(--secondary-container);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(1.9em);
+    }
+    .btnSubmitDelete {
+
+        font-family: inherit;
+        display: inline-block;
+        width: 8em;
+        height: 2.6em;
+        line-height: 2.5em;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid black;
+        transition: color .5s;
+        z-index: 1;
+        font-size: 17px;
+        border-radius: 6px;
+        font-weight: 500;
+        color: black;
+    }
+
+    .btnSubmitDelete:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background: #8d0808;
+        height: 150px;
+        width: 200px;
+        border-radius: 50%;
+    }
+
+    .btnSubmitDelete:hover {
+        color: #fff;
+    }
+
+    .btnSubmitDelete:before {
+        top: 100%;
+        left: 100%;
+        transition: all .7s;
+    }
+
+    .btnSubmitDelete:hover:before {
+        top: -30px;
+        left: -30px;
+    }
+
+    .btnSubmitDelete:active:before {
+        background: #380101;
+        transition: background 0s;
+    }
 </style>
 </html>

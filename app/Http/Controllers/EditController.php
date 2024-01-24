@@ -21,7 +21,7 @@ class EditController extends Controller
         $data = request()->validate([
             'fullName' => 'min:3|required ',
             'gender' => 'required ',
-            "phone" => 'required|unique:clients,phone',
+            "phone" => 'required',
             'address' => ''
         ]);
         DB::table('clients')->where('id', $client)->update($data);
