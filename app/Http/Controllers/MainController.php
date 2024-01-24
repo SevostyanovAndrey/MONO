@@ -17,8 +17,11 @@ class MainController extends Controller
      */
     public function __invoke(Request $request)
     {
-    $data = DB::table('clients')->paginate(5);
+        $clients = DB::table('clients')
+            ->join('autos', 'clients.id', '=', 'autos.client_id')
+            ->select('clients.*', 'autos.brand', 'autos.numberAuto')
+            ->paginate(5);
 
-    return view('main', compact('data'));
+        return view('main', compact('clients'));
     }
 }
