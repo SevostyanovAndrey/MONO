@@ -18,6 +18,8 @@ Route::get('/home', \App\Http\Controllers\MainController::class)->name('main');
 Route::get('/home/{client}', [\App\Http\Controllers\EditController::class, 'edit'])->where('client', "[0-9]+")->name('view');
 Route::patch('/home/{client}/updateClient', [\App\Http\Controllers\EditController::class, 'updateClient'])->where('client', "[0-9]+")->name('updateClient');
 Route::patch('/home/{client}/updateAuto', [\App\Http\Controllers\EditController::class, 'updateAuto'])->where('client', "[0-9]+")->name('updateAuto');
+Route::delete('/home/{client}/deleteClient',[\App\Http\Controllers\DeleteController::class, 'destroyUser'])->where('client', "[0-9]+")->name('destroyUser');
+Route::delete('/home/{client}/deleteAuto',[\App\Http\Controllers\DeleteController::class, 'destroyAuto'])->where('client', "[0-9]+")->name('destroyAuto');
 Route::get('/create', [\App\Http\Controllers\CreateController::class, 'create'])->name('create');
 Route::post('/', [\App\Http\Controllers\CreateController::class, 'store'])->name('store');
 Route::get('/createAuto', [\App\Http\Controllers\CreateController::class, 'createAuto'])->name('createAuto');

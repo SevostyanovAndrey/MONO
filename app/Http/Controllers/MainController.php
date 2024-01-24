@@ -17,7 +17,7 @@ class MainController extends Controller
      */
     public function __invoke(Request $request)
     {
-    $data = DB::table('clients')->get();
+    $data = DB::table('clients')->paginate(5);
 
     return view('main', compact('data'));
     }

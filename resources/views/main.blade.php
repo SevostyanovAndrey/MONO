@@ -13,7 +13,7 @@
 <div class="container">
     <h2 class="m-3">Все клиенты</h2>
             @foreach($data as $dt)
-                @foreach(DB::table('autos')->where('client_id',$dt->id )->get() as $auto)
+                @foreach(DB::table('autos')->where('client_id',$dt->id )->paginate(5) as $auto)
                     <div>
                         <table class="table table-striped">
                             <tbody>
@@ -24,13 +24,21 @@
                                         {{$auto->numberAuto}}
                                     </td>
                                     <td> <a href="{{route('view', $dt->id)}}"><button>Ред</button></a></td>
-                                    <td><button><b>X</b></button></td>
+                                <form action="{{route('destroyUser', $dt->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <td><button type="submit"><b>X</b></button></td>
+                                </form>
+
                             </tr>
                             </tbody>
                         </table>
+
+
                     </div>
                 @endforeach
             @endforeach
+    {{$dt->links()}}
         @endsection
 
 

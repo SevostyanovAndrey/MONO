@@ -86,7 +86,7 @@
     @foreach($dataAuto as $auto)
         <div class="m-3">
             <div style="width: 30%">
-                <form action="{{route('updateAuto', $auto->client_id)}}">
+                <form action="{{route('updateAuto', $auto->client_id)}}" method="post">
                     @csrf
                     @method("PATCH")
                     <div class="input-group flex-nowrap mb-3">
@@ -107,20 +107,25 @@
                     </div>
 
 
-            <div class="input-group flex-nowrap mb-3" style="width: 37.2%">
+            <div class="input-group flex-nowrap " style="width: 37.2%">
                 <span class="input-group-text" id="basic-addon1">Гос номер РФ</span>
                 <input type="text" class="form-control" placeholder="Гос номер РФ"
                        style="border-bottom-right-radius: 7px; border-top-right-radius: 7px"
                        id="numberAuto" name="numberAuto" value="{{$auto->numberAuto}}">
-                <input type="submit" class="btn btn-success"
-                       style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px" value="сохранить">
 
 
             </div>
-            <hr class="mb-5 mt-5" style="width: 30%; border-bottom: 2px solid black">
+                    <input type="submit" class="btn btn-success"
+                           style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px" value="сохранить">
+                </form>
+                <form class="" action="{{route("destroyAuto", $auto->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <input class="btn btn-danger" type="submit" value="delete">
                 </form>
 
         </div>
+            <hr class="mb-5 mt-5" style="width: 30%; border-bottom: 2px solid black">
     @endforeach
 
 @endsection
