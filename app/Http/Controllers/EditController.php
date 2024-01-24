@@ -21,7 +21,7 @@ class EditController extends Controller
         $data = request()->validate([
             'fullName' => 'min:3|required ',
             'gender' => 'required ',
-            "phone" => 'required ',
+            "phone" => 'required|unique:clients,phone',
             'address' => ''
         ]);
         DB::table('clients')->where('id', $client)->update($data);
@@ -34,9 +34,20 @@ class EditController extends Controller
             'brand' => 'min:3|required ',
             'model' => 'required ',
             "color" => 'required ',
-            'numberAuto' => 'required',
+            'numberAuto' => 'required|unique:autos,numberAuto',
+            'status' => '',
+            'client_id' => 'required'
         ]);
+
+        $enabled = request()->input('enable');
+        if ($enabled == "on") {
+            $enabled = true;
+        } else $enabled = false;
+
+        $data['status'] = $enabled;
+
         DB::table('autos')->where('client_id', $client)->update($data);
+
         return redirect()->route('view', $client);
     }
 }

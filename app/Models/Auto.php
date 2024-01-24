@@ -11,6 +11,10 @@ class Auto extends Model
     protected $fillable = [
         'brand', 'model', 'color', 'numberAuto', 'client_id'
     ];
+    protected $attributes = [
+        'brand' => 'Неизвестно',
+        'numberAuto' => '000000',
+    ];
     public function client(){
         return $this->belongsTo(Client::class);
     }

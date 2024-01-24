@@ -12,7 +12,7 @@
                 <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text" id="basic-addon1">ФИО</span>
                     <input type="text" class="form-control" placeholder="Имя пользователя" aria-label="Имя пользователя"
-                           aria-describedby="addon-wrapping" id="fullName" name="fullName"  value="{{$data->fullName}}">
+                           aria-describedby="addon-wrapping" id="fullName" name="fullName" value="{{$data->fullName}}">
                 </div>
                 <div class="input-group flex-nowrap mb-3">
                     <span class="input-group-text" id="basic-addon1">Пол</span>
@@ -34,9 +34,11 @@
                 <div class="input-group flex-nowrap mb-3" style="width: 37.2%">
                     <span class="input-group-text" id="basic-addon1">Адрес</span>
                     <input type="text" class="form-control" placeholder="Имя пользователя"
-                           style="border-bottom-right-radius: 7px; border-top-right-radius: 7px" id="address" name="address" value="{{$data->address}}">
+                           style="border-bottom-right-radius: 7px; border-top-right-radius: 7px" id="address"
+                           name="address" value="{{$data->address}}">
                     <button type="submit" class="btn btn-success"
-                            style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px ">Сохранить
+                            style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px ">
+                        Сохранить
                     </button>
                 </div>
             </form>
@@ -74,7 +76,10 @@
                        name="numberAuto">
                 <input type="submit" class="btn btn-success"
                        style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px ">
-                </input>
+            </div>
+            <div class="form-check form-switch">
+                <label> автомобиль на стоянке ?</label>
+                <input class=" form-control form-check-input" type="checkbox" role="switch" name="enable">
             </div>
         </form>
     </div>
@@ -94,7 +99,8 @@
                         <input type="text" class="form-control" placeholder="Марка" aria-label="Марка"
                                aria-describedby="addon-wrapping" id="brand" name="brand" value="{{$auto->brand}}">
                     </div>
-                    <input type="hidden" id="client_id" name="client_id" value="{{$auto->client_id}}" style="display: none;">
+                    <input type="hidden" id="client_id" name="client_id" value="{{$auto->client_id}}"
+                           style="display: none;">
                     <div class="input-group flex-nowrap mb-3">
                         <span class="input-group-text" id="basic-addon1">Модель</span>
                         <input type="text" class="form-control" placeholder="Модель" aria-label="Модель"
@@ -107,16 +113,24 @@
                     </div>
 
 
-            <div class="input-group flex-nowrap " style="width: 37.2%">
-                <span class="input-group-text" id="basic-addon1">Гос номер РФ</span>
-                <input type="text" class="form-control" placeholder="Гос номер РФ"
-                       style="border-bottom-right-radius: 7px; border-top-right-radius: 7px"
-                       id="numberAuto" name="numberAuto" value="{{$auto->numberAuto}}">
-
-
-            </div>
+                    <div class="input-group flex-nowrap " style="width: 37.2%">
+                        <span class="input-group-text" id="basic-addon1">Гос номер РФ</span>
+                        <input type="text" class="form-control" placeholder="Гос номер РФ"
+                               style="border-bottom-right-radius: 7px; border-top-right-radius: 7px"
+                               id="numberAuto" name="numberAuto" value="{{$auto->numberAuto}}">
+                    </div>
+                    <div class="form-check form-switch">
+                        <label> автомобиль на стоянке ?</label>
+                        @if($auto->status == 1)
+                            <input class=" form-control form-check-input" type="checkbox" role="switch" name="enable"
+                                   checked>
+                        @else
+                            <input class=" form-control form-check-input" type="checkbox" role="switch" name="enable">
+                        @endif
+                    </div>
                     <input type="submit" class="btn btn-success"
-                           style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px" value="сохранить">
+                           style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px"
+                           value="сохранить">
                 </form>
                 <form class="" action="{{route("destroyAuto", $auto->id)}}" method="post">
                     @csrf
@@ -124,7 +138,7 @@
                     <input class="btn btn-danger" type="submit" value="delete">
                 </form>
 
-        </div>
+            </div>
             <hr class="mb-5 mt-5" style="width: 30%; border-bottom: 2px solid black">
     @endforeach
 

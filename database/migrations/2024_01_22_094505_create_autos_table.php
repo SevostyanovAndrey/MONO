@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('model');
             $table->string('color');
             $table->string('numberAuto');
+            $table->boolean('status');
             $table->foreignId('client_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

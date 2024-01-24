@@ -34,13 +34,18 @@ class CreateController extends Controller
             'brand' => 'min:3|required ',
             'model' => 'required ',
             "color" => 'required ',
-            'numberAuto' => 'required',
+            'numberAuto' => 'required|unique:autos,numberAuto',
+            'status' => '',
             'client_id' => 'required'
         ]);
-        $gg = DB::table('autos')->insert($data);
-        $clientId = DB::getPdo()->lastInsertId();
-
-        return redirect()->route('view',$data["client_id"]);
+        $enabled = request()->input('enable');
+        if ($enabled == "on"){
+            $enabled = true;
+        }
+        else $enabled = false;
+        $data['status'] = $enabled;
+        DB::table('autos')->insert($data);
+        return redirect()->route('view', $data["client_id"]);
     }
 
     public function store(Request $request)
@@ -48,12 +53,12 @@ class CreateController extends Controller
         $data = $request->validate([
             'fullName' => 'min:3|required ',
             'gender' => 'required ',
-            "phone" => 'required ',
+            "phone" => 'required|unique:clients,phone',
             'address' => ''
         ]);
         DB::table('clients')->insert($data);
         $clientId = DB::getPdo()->lastInsertId();
 
-        return redirect()->route('view',$clientId);
+        return redirect()->route('view', $clientId);
     }
 }
