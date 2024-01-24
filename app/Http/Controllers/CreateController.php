@@ -6,8 +6,6 @@ use App\Http\Requests\AutoRequest;
 use App\Http\Requests\ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use mysql_xdevapi\Exception;
-use Throwable;
 
 class CreateController extends Controller
 {
@@ -23,42 +21,45 @@ class CreateController extends Controller
         return view('create');
     }
 
-    public function createAuto()
-    {
-        return view('createAuto');
-    }
-
     public function storeAuto(Request $request)
     {
-        $data = $request->validate([
-            'brand' => 'min:3|required ',
-            'model' => 'required ',
-            "color" => 'required ',
-            'numberAuto' => 'required|unique:autos,numberAuto',
-            'status' => '',
-            'client_id' => 'required'
-        ]);
-        $enabled = request()->input('enable');
-        if ($enabled == "on"){
-            $enabled = true;
+        try {
+            $data = $request->validate([
+                'brand' => 'min:3|required ',
+                'model' => 'required ',
+                "color" => 'required ',
+                'numberAuto' => 'required|unique:autos,numberAuto',
+                'status' => '',
+                'client_id' => 'required'
+            ]);
+            $enabled = request()->input('enable');
+            if ($enabled == "on") {
+                $enabled = true;
+            } else $enabled = false;
+            $data['status'] = $enabled;
+            DB::table('autos')->insert($data);
+            return redirect()->route('view', $data["client_id"]);
+        } catch (\Exception $e) {
+            return $e;
         }
-        else $enabled = false;
-        $data['status'] = $enabled;
-        DB::table('autos')->insert($data);
-        return redirect()->route('view', $data["client_id"]);
+
     }
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'fullName' => 'min:3|required ',
-            'gender' => 'required ',
-            "phone" => 'required|unique:clients,phone',
-            'address' => ''
-        ]);
-        DB::table('clients')->insert($data);
-        $clientId = DB::getPdo()->lastInsertId();
+        try {
+            $data = $request->validate([
+                'fullName' => 'min:3|required ',
+                'gender' => 'required ',
+                "phone" => 'required|unique:clients,phone',
+                'address' => ''
+            ]);
+            DB::table('clients')->insert($data);
+            $clientId = DB::getPdo()->lastInsertId();
 
-        return redirect()->route('view', $clientId);
+            return redirect()->route('view', $clientId);
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
 }

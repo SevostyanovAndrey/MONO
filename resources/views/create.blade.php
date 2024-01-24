@@ -1,6 +1,6 @@
 @extends('base.base')
 @section('content')
-        <div style="width: 95%; margin-left: auto; margin-right: auto"">
+        <div style="width: 95%; margin-left: auto; margin-right: auto">
             <h2>
                 <b>Клиент</b>
             </h2>

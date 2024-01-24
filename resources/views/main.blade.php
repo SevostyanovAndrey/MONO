@@ -13,7 +13,9 @@
                 </div>
             </div>
         </div>
-        <h3 class="mb-4 txtCustom">Все клиенты</h3>
+        <h3 class="mb-4 txtCustom">Все клиенты <button class="btn nav-link active btnCustom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Статистика автомобилей
+            </button></h3>
         @foreach($clients as $client)
             <table class="table table-hover">
                 <tbody style="text-align: left">

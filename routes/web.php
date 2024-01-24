@@ -23,7 +23,6 @@ Route::delete('/home/{client}/deleteClient',[\App\Http\Controllers\DeleteControl
 Route::delete('/home/{client}/deleteAuto',[\App\Http\Controllers\DeleteController::class, 'destroyAuto'])->where('client', "[0-9]+")->name('destroyAuto');
 Route::get('/create', [\App\Http\Controllers\CreateController::class, 'create'])->name('create');
 Route::post('/', [\App\Http\Controllers\CreateController::class, 'store'])->name('store');
-Route::get('/createAuto', [\App\Http\Controllers\CreateController::class, 'createAuto'])->name('createAuto');
 Route::post('/home', [\App\Http\Controllers\CreateController::class, 'storeAuto'])->name('storeAutos');
 
 Route::fallback(function (){

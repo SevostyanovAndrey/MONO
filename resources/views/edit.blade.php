@@ -1,6 +1,6 @@
 @extends('base.base')
 @section('content')
-    <div style="width: 95%; margin-left: auto; margin-right: auto"">
+    <div style="width: 95%; margin-left: auto; margin-right: auto">
     <div>
         <div style="width: 30%">
             <h2>
@@ -105,7 +105,7 @@
 
                     <input type="hidden" id="client_id" name="client_id" value="{{$auto->client_id}}"
                            style="display: none;">
-                    <div >
+                    <div>
                         <h6 class="m-2"> Автомобиль на стоянке ?</h6>
                         @if($auto->status == 1)
                         <label class="switch">

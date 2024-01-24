@@ -21,11 +21,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                        <button class="btn nav-link active btnCustom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            Статистика автомобилей
-                        </button>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link active btnCustom" aria-current="page" href="{{route("create")}}">Создание клиента</a>
                 </li>
             </ul>
@@ -33,12 +28,6 @@
 
     </div>
 </nav>
-<div class="loader">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-</div>
 
 @yield('content')
 
