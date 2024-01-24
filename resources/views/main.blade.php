@@ -1,10 +1,7 @@
 @extends('base.base')
 @section('content')
-    <div class="container">
-        <div class="mb-5">
-            <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                <b>Статистика автомобилей</b>
-            </button>
+    <div style="width: 95%; margin-left: auto; margin-right: auto">
+        <div class="mb-3">
             <div class="collapse" id="collapseExample" style="width: 20%">
                 <div class="card card-body ">
                     @foreach($uniqAuto as $uavto)
@@ -16,25 +13,24 @@
                 </div>
             </div>
         </div>
-        <h2 class="mb-4">Все клиенты</h2>
+        <h3 class="mb-4 txtCustom">Все клиенты</h3>
         @foreach($clients as $client)
-
-            <table class="table table-striped">
+            <table class="table table-hover" >
                 <tbody style="text-align: left">
                 <tr>
                     <td style="width: 30%">{{$client->fullName}}</td>
                     <td style="width: 30%" >{{$client->brand}}</td>
                     <td style="width: 30%">{{$client->numberAuto}}</td>
                     <td>
-                        <a href="{{route('view', $client->id)}}">
-                            <button>&#9998;</button>
+                        <a class="" href="{{route('view', $client->id)}}">
+                            <button class="txtBorderSubmit">&#9998;</button>
                         </a>
                     </td>
                     <td>
                         <form action="{{route('destroyUser', $client->id)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit"><b>&#10008;</b></button>
+                            <button class="txtBorderDanger" type="submit"><b>&#10008;</b></button>
                         </form>
                     </td>
                 </tr>
@@ -43,6 +39,5 @@
                 @endforeach
             {{$clients->links()}}
     </div>
-
 
 @endsection

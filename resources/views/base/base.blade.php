@@ -12,14 +12,28 @@
     <title>Document</title>
 </head>
 <body>
-<ul class="nav justify-content-center" >
-    <li class="nav-item">
-        <a class="nav-link" href="{{route('main')}}" style="color: black"><h3><b>Главная страница</b></h3></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{route("create")}}" style="color: black"> <h3><b>Создание клиента</b></h3></a>
-    </li>
-</ul>
+<nav class="navbar navbar-expand-lg bg-body-tertiary ">
+    <div class="container-fluid">
+        <a class="navbar-brand btnCustom" href="{{route('main')}}"> <h3><b>Главная страница</b></h3></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button class="btn nav-link active btnCustom" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Статистика автомобилей
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active btnCustom" aria-current="page" href="{{route("create")}}">Создание клиента</a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
 
 @yield('content')
 
@@ -27,7 +41,7 @@
 <style>
     .btnCustom {
         font-size: 18px;
-        color: #e1e1e1;
+        color: #000000;
         font-family: inherit;
         font-weight: 800;
         cursor: pointer;
@@ -42,7 +56,7 @@
 
     .btnCustom:focus,
     .btnCustom:hover {
-        color: #fff;
+        color: #000000;
     }
 
     .btnCustom:focus:after,
@@ -59,10 +73,107 @@
         position: absolute;
         width: 0%;
         height: 2px;
-        background-color: #fff;
+        background-color: #000000;
         transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
         transition-duration: 400ms;
         transition-property: width, left;
+    }
+    .txtCustom {
+        color: #000000;
+        font-family: inherit;
+        font-weight: 800;
+        position: relative;
+        border: none;
+        background: none;
+        text-transform: uppercase;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 400ms;
+        transition-property: color;
+    }
+    .txtBorderSubmit {
+        position: relative;
+        padding: 5px 10px;
+        border-radius: 7px;
+        border: 1px solid rgba(249, 255, 61, 0.16);
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background: transparent;
+        color: #fff;
+        overflow: hidden;
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+    }
+
+    .txtBorderSubmit:hover {
+        background: rgba(74, 255, 61, 0.43);
+        box-shadow: 0 0 30px 5px rgba(8, 236, 0, 0.81);
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+    .txtBorderSubmit::before {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 86%;
+        position: absolute;
+        top: 7%;
+        left: 0%;
+        opacity: 0;
+        background: #fff;
+        box-shadow: 0 0 50px 30px #fff;
+        -webkit-transform: skewX(-20deg);
+        -moz-transform: skewX(-20deg);
+        -ms-transform: skewX(-20deg);
+        -o-transform: skewX(-20deg);
+        transform: skewX(-20deg);
+    }
+
+    .txtBorderDanger {
+        position: relative;
+        padding: 5px 10px;
+        border-radius: 7px;
+        border: 1px solid rgba(249, 255, 61, 0.16);
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        background: transparent;
+        color: #000000;
+        overflow: hidden;
+        box-shadow: 0 0 0 0 transparent;
+        -webkit-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in;
+    }
+
+    .txtBorderDanger:hover {
+        background: rgba(255, 61, 61, 0.59);
+        box-shadow: 0 0 30px 5px rgba(236, 28, 0, 0.81);
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+    .txtBorderDanger::before {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 86%;
+        position: absolute;
+        top: 7%;
+        left: 0%;
+        opacity: 0;
+        background: #fff;
+        box-shadow: 0 0 50px 30px #fff;
+        -webkit-transform: skewX(-20deg);
+        -moz-transform: skewX(-20deg);
+        -ms-transform: skewX(-20deg);
+        -o-transform: skewX(-20deg);
+        transform: skewX(-20deg);
     }
 </style>
 </html>
