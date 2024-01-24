@@ -12,19 +12,57 @@
     <title>Document</title>
 </head>
 <body>
-<ul class="nav justify-content-center">
+<ul class="nav justify-content-center" >
     <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="{{route("create")}}">Создать</a>
+        <a class="nav-link" href="{{route('main')}}" style="color: black"><h3><b>Главная страница</b></h3></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('main')}}"><b>Главная</b></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Статистика</a>
+        <a class="nav-link active" aria-current="page" href="{{route("create")}}" style="color: black"> <h3><b>Создание клиента</b></h3></a>
     </li>
 </ul>
 
 @yield('content')
 
 </body>
+<style>
+    .btnCustom {
+        font-size: 18px;
+        color: #e1e1e1;
+        font-family: inherit;
+        font-weight: 800;
+        cursor: pointer;
+        position: relative;
+        border: none;
+        background: none;
+        text-transform: uppercase;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 400ms;
+        transition-property: color;
+    }
+
+    .btnCustom:focus,
+    .btnCustom:hover {
+        color: #fff;
+    }
+
+    .btnCustom:focus:after,
+    .btnCustom:hover:after {
+        width: 100%;
+        left: 0%;
+    }
+
+    .btnCustom:after {
+        content: "";
+        pointer-events: none;
+        bottom: -2px;
+        left: 50%;
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: #fff;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 400ms;
+        transition-property: width, left;
+    }
+</style>
 </html>
