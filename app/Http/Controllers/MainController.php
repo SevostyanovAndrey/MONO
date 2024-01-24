@@ -16,7 +16,7 @@ class MainController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function getData(Request $request)
+    public function __invoke(Request $request)
     {
         $clients = DB::table('clients')
             ->join('autos', 'clients.id', '=', 'autos.client_id')
@@ -29,7 +29,5 @@ class MainController extends Controller
 
         return view('main', compact('clients', 'badClients', "uniqAuto"));
     }
-    public function search(){
 
-    }
 }

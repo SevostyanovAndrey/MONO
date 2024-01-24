@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [\App\Http\Controllers\MainController::class, 'getData'])->name('main');
-Route::get('/home',[\App\Http\Controllers\MainController::class, '']);
+Route::get('/home', \App\Http\Controllers\MainController::class)->name('main');
+
 Route::get('/home/{client}', [\App\Http\Controllers\EditController::class, 'edit'])->where('client', "[0-9]+")->name('view');
 Route::patch('/home/{client}/updateClient', [\App\Http\Controllers\EditController::class, 'updateClient'])->where('client', "[0-9]+")->name('updateClient');
 Route::patch('/home/{client}/updateAuto', [\App\Http\Controllers\EditController::class, 'updateAuto'])->where('client', "[0-9]+")->name('updateAuto');
