@@ -1,44 +1,33 @@
 @extends('base.base')
 @section('content')
-        <div style="width: 30%">
+        <div style="width: 95%; margin-left: auto; margin-right: auto"">
             <h2>
                 <b>Клиент</b>
             </h2>
-
             <form action="{{route('store')}}" method="POST">
                 @csrf
-                <div class="input-group flex-nowrap mb-3">
-                    <span class="input-group-text" id="basic-addon1">ФИО</span>
-                    <input type="text" class="form-control" placeholder="Имя пользователя" id="fullName" name="fullName"
-                           aria-describedby="addon-wrapping" value="{{old('fullName')}}">
+                <div class="inputGroup">
+                    <input type="text" required="" autocomplete="off" id="fullName" name="fullName" value="{{old('fullName')}}">
+                    <label for="name">ФИО</label>
                 </div>
-
-                <div class="input-group flex-nowrap mb-3">
-                    <span class="input-group-text" id="basic-addon1">Пол</span>
-                    <select class="form-select" id="gender" name="gender" >
+                <div class="inputGroup">
+                    <select class="form-select " id="gender" name="gender" style="border: 2px solid black">
                         <option selected>Откройте это меню выбора</option>
                         <option value="Мужской">Мужской</option>
                         <option value="Женский">Женский</option>
-
                     </select>
                 </div>
-                <div class="input-group flex-nowrap mb-3">
-                    <span class="input-group-text" id="basic-addon1">Номер телефона</span>
-                    <input type="text" class="form-control" placeholder="Имя пользователя" aria-label="Имя пользователя"
-                           aria-describedby="addon-wrapping" id="phone" name="phone">
+                <div class="inputGroup">
+                    <input type="text" required="" autocomplete="off" id="phone" name="phone" value="{{old('phone')}}">
+                    <label for="name">Номер телефона</label>
                 </div>
-
-
-                <div class="input-group flex-nowrap mb-3" style="width: 37.2%">
-                    <span class="input-group-text" id="basic-addon1">Адрес</span>
-                    <input type="text" class="form-control" placeholder="Имя пользователя"
-                           style="border-bottom-right-radius: 7px; border-top-right-radius: 7px"  id="address"
-                           name="address" >
-                    <input type="submit" class="btn btn-success"
-                           style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px "
-                           value="Сохранить и продолжить">
+                <div class="inputGroup">
+                    <input type="text" required="" autocomplete="off"  id="address" name="address" value="{{old('address')}}">
+                    <label for="name">Адрес</label>
                 </div>
+                <button type="submit" class="btnSubmitCustom mb-5">
+                    Сохранить и продолжить
+                </button>
             </form>
-
 @endsection
 

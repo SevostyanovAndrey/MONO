@@ -1,6 +1,6 @@
 @extends('base.base')
 @section('content')
-    <div>
+    <div style="width: 95%; margin-left: auto; margin-right: auto"">
     <div>
         <div style="width: 30%">
             <h2>
@@ -34,7 +34,7 @@
                         @endif
                     </select>
                 </div>
-                <button type="submit" class="btnSubmitCustom">
+                <button type="submit" class="btnSubmitCustom mb-5">
                     Обновить
                 </button>
             </form>
@@ -70,7 +70,7 @@
                     <span class="slider"></span>
                 </label>
             </div>
-            <button type="submit" class="btnSubmitCustom">
+            <button type="submit" class="btnSubmitCustom mb-5">
                 Добавить!
             </button>
             <input type="hidden" id="client_id" name="client_id" value="{{$data->id}}" style="display: none;">

@@ -223,7 +223,7 @@
 
         font-family: inherit;
         display: inline-block;
-        width: 8em;
+        width: 400px;
         height: 2.6em;
         line-height: 2.5em;
         position: relative;
@@ -242,13 +242,13 @@
         position: absolute;
         z-index: -1;
         background: #4b9f45;
-        height: 150px;
-        width: 200px;
+        height: 100px;
+        width: 600px;
         border-radius: 50%;
     }
 
     .btnSubmitCustom:hover {
-        color: #fff;
+        color: #102f01;
     }
 
     .btnSubmitCustom:before {
@@ -323,10 +323,9 @@
         transform: translateX(1.9em);
     }
     .btnSubmitDelete {
-
         font-family: inherit;
         display: inline-block;
-        width: 8em;
+        width: 400px;
         height: 2.6em;
         line-height: 2.5em;
         position: relative;
@@ -345,8 +344,8 @@
         position: absolute;
         z-index: -1;
         background: #8d0808;
-        height: 150px;
-        width: 200px;
+        height: 100px;
+        width: 600px;
         border-radius: 50%;
     }
 

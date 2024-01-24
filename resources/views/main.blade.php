@@ -6,22 +6,20 @@
                 <div class="card card-body ">
                     @foreach($uniqAuto as $uavto)
                         <table class="table">
-                            <td style="width: 70%"> <small>{{$uavto->brand}}</small></td>
-                            <td> <small>{{$uavto->count}}</small></td>
+                            <td style="width: 70%"><small>{{$uavto->brand}}</small></td>
+                            <td><small>{{$uavto->count}}</small></td>
                         </table>
                     @endforeach
                 </div>
             </div>
         </div>
-
-
         <h3 class="mb-4 txtCustom">Все клиенты</h3>
         @foreach($clients as $client)
-            <table class="table table-hover" >
+            <table class="table table-hover">
                 <tbody style="text-align: left">
                 <tr>
                     <td style="width: 30%">{{$client->fullName}}</td>
-                    <td style="width: 30%" >{{$client->brand}}</td>
+                    <td style="width: 30%">{{$client->brand}}</td>
                     <td style="width: 30%">{{$client->numberAuto}}</td>
                     <td>
                         <a class="" href="{{route('view', $client->id)}}">
@@ -38,8 +36,7 @@
                 </tr>
                 </tbody>
             </table>
-                @endforeach
-            {{$clients->links()}}
+        @endforeach
+        {{$clients->links()}}
     </div>
-
 @endsection
