@@ -13,6 +13,8 @@
                 </div>
             </div>
         </div>
+
+
         <h3 class="mb-4 txtCustom">Все клиенты</h3>
         @foreach($clients as $client)
             <table class="table table-hover" >

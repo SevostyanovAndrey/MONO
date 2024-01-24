@@ -47,7 +47,44 @@
 
     </div>
 
-    <br>
+    {{--     форма создания автомобиля начало --}}
+    <div style="width: 30%">
+        <h2>
+            <b>Добавление Автомобиля</b>
+        </h2>
+        <form action="{{route('storeAutos')}}" method="post">
+            @csrf
+            <div class="input-group flex-nowrap ">
+                <span class="input-group-text" id="basic-addon1">Марка</span>
+                <input type="text" class="form-control" placeholder="Марка" aria-label="Марка"
+                       aria-describedby="addon-wrapping" id="brand" name="brand">
+            </div>
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="basic-addon1">Модель</span>
+                <input type="text" class="form-control" placeholder="Модель" aria-label="Модель"
+                       aria-describedby="addon-wrapping" id="model" name="model">
+            </div>
+            <input type="hidden" id="client_id" name="client_id" value="{{$data->id}}" style="display: none;">
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="basic-addon1">Цвет кузова</span>
+                <input type="text" class="form-control" placeholder="Цвет кузова" aria-label="Цвет кузова"
+                       aria-describedby="addon-wrapping" id="color" name="color">
+            </div>
+            <div class="input-group flex-nowrap" style="width: 37.2%">
+                <span class="input-group-text" id="basic-addon1">Гос номер РФ</span>
+                <input type="text" class="form-control" placeholder="Гос номер РФ"
+                       style="border-bottom-right-radius: 7px; border-top-right-radius: 7px" id="numberAuto"
+                       name="numberAuto">
+                <input type="submit" class="btn btn-success"
+                       style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px ">
+            </div>
+            <div class="form-check form-switch">
+                <label> автомобиль на стоянке ?</label>
+                <input class=" form-control form-check-input" type="checkbox" role="switch" name="enable">
+            </div>
+        </form>
+    </div>
+
     <h2 class="">
         <b>Автомобили</b>
     </h2>
@@ -104,42 +141,5 @@
             </div>
             <hr class="mb-5 mt-5" style="width: 30%; border-bottom: 2px solid black">
     @endforeach
-            {{--     форма создания автомобиля начало --}}
-            <div style="width: 30%">
-                <h2>
-                    <b>Добавление Автомобиля</b>
-                </h2>
-                <form action="{{route('storeAutos')}}" method="post">
-                    @csrf
-                    <div class="input-group flex-nowrap ">
-                        <span class="input-group-text" id="basic-addon1">Марка</span>
-                        <input type="text" class="form-control" placeholder="Марка" aria-label="Марка"
-                               aria-describedby="addon-wrapping" id="brand" name="brand">
-                    </div>
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="basic-addon1">Модель</span>
-                        <input type="text" class="form-control" placeholder="Модель" aria-label="Модель"
-                               aria-describedby="addon-wrapping" id="model" name="model">
-                    </div>
-                    <input type="hidden" id="client_id" name="client_id" value="{{$data->id}}" style="display: none;">
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="basic-addon1">Цвет кузова</span>
-                        <input type="text" class="form-control" placeholder="Цвет кузова" aria-label="Цвет кузова"
-                               aria-describedby="addon-wrapping" id="color" name="color">
-                    </div>
-                    <div class="input-group flex-nowrap" style="width: 37.2%">
-                        <span class="input-group-text" id="basic-addon1">Гос номер РФ</span>
-                        <input type="text" class="form-control" placeholder="Гос номер РФ"
-                               style="border-bottom-right-radius: 7px; border-top-right-radius: 7px" id="numberAuto"
-                               name="numberAuto">
-                        <input type="submit" class="btn btn-success"
-                               style="margin-left: 10px; border-top-left-radius:7px; border-bottom-left-radius: 7px ">
-                    </div>
-                    <div class="form-check form-switch">
-                        <label> автомобиль на стоянке ?</label>
-                        <input class=" form-control form-check-input" type="checkbox" role="switch" name="enable">
-                    </div>
-                </form>
-            </div>
 
 @endsection
