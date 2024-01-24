@@ -14,7 +14,7 @@ class CreateController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
 
@@ -23,27 +23,37 @@ class CreateController extends Controller
         return view('create');
     }
 
-    public function store(Request $request)
+    public function createAuto()
     {
-            $data = $request->validate([
-                'fullName' => 'min:3|required ',
-                'gender' => 'required ',
-                "phone" => 'required ',
-                'address' => ''
-            ]);
-            DB::table('clients')->insert($data);
-
+        return view('createAuto');
     }
-    public function storeAuto(Request $request){
+
+    public function storeAuto(Request $request)
+    {
         $data = $request->validate([
             'brand' => 'min:3|required ',
             'model' => 'required ',
             "color" => 'required ',
             'numberAuto' => 'required',
             'client_id' => 'required'
-
         ]);
-        DB::table('autos')->insert($data);
-        return redirect()->route('create');
+        $gg = DB::table('autos')->insert($data);
+        $clientId = DB::getPdo()->lastInsertId();
+
+        return redirect()->route('view',$data["client_id"]);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'fullName' => 'min:3|required ',
+            'gender' => 'required ',
+            "phone" => 'required ',
+            'address' => ''
+        ]);
+        DB::table('clients')->insert($data);
+        $clientId = DB::getPdo()->lastInsertId();
+
+        return redirect()->route('view',$clientId);
     }
 }

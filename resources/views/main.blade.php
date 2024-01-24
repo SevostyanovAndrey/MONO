@@ -20,7 +20,9 @@
                             <tr>
                                     <td>{{$dt->fullName}}</td>
                                     <td>{{$auto->brand}}</td>
-                                    <td>{{$auto->numberAuto}}</td>
+                                    <td>
+                                        {{$auto->numberAuto}}
+                                    </td>
                                     <td> <a href="{{route('view', $dt->id)}}"><button>Ред</button></a></td>
                                     <td><button><b>X</b></button></td>
                             </tr>

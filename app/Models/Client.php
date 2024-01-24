@@ -9,7 +9,7 @@ use App\Models\Auto;
 class Client extends Model
 {
     use HasFactory;
-    protected $fillable = ['fullName'];
+    protected $fillable = ['fullName','gender', 'phone', 'address'];
     public function auto(){
         return $this->hasMany(Auto::class);
     }

@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Controllers\MainController::class)->name('main');
-Route::get('/{client}', \App\Http\Controllers\EditController::class)->where('client', "[0-9]+")->name('view');
+Route::get('/home', \App\Http\Controllers\MainController::class)->name('main');
+Route::get('/home/{client}', [\App\Http\Controllers\EditController::class, 'edit'])->where('client', "[0-9]+")->name('view');
+Route::patch('/home/{client}/updateClient', [\App\Http\Controllers\EditController::class, 'updateClient'])->where('client', "[0-9]+")->name('updateClient');
+Route::patch('/home/{client}/updateAuto', [\App\Http\Controllers\EditController::class, 'updateAuto'])->where('client', "[0-9]+")->name('updateAuto');
 Route::get('/create', [\App\Http\Controllers\CreateController::class, 'create'])->name('create');
 Route::post('/', [\App\Http\Controllers\CreateController::class, 'store'])->name('store');
-Route::post('/1', [\App\Http\Controllers\CreateController::class, 'storeAuto'])->name('storeAutos');
-
+Route::get('/createAuto', [\App\Http\Controllers\CreateController::class, 'createAuto'])->name('createAuto');
+Route::post('/home', [\App\Http\Controllers\CreateController::class, 'storeAuto'])->name('storeAutos');
 
 Route::fallback(function (){
     return redirect()->route('main');
